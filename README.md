@@ -1,3 +1,7 @@
-# Repeat Hugo Theme
+# Theme Name
 
-Flexible Hugo theme for corporte and product websites.
+## Features
+
+## Installation
+
+## Configuration
