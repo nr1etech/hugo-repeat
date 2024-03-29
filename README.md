@@ -22,7 +22,9 @@ git submodule update --remote
 
 ```bash
 git clone git@github.com:nr1etech/hugo-repeat-example.git
-cd hugo-repeat-example/themes/repeat
+cd hugo-repeat-example
+git submodule update --init
+cd themes/repeat
 pnpm i
 pnpm watch
 ```
