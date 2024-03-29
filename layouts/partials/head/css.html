@@ -1,9 +1,9 @@
-{{- with resources.Get "css/main.css" }}
-  {{- if eq hugo.Environment "development" }}
-    <link rel="stylesheet" href="{{ .RelPermalink }}">
-  {{- else }}
-    {{- with . | minify | fingerprint }}
-      <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
-    {{- end }}
-  {{- end }}
-{{- end }}
+{{- $styles := resources.Get "css/generated.css" -}}
+{{- if hugo.IsDevelopment }}
+  {{- $styles = $styles | fingerprint -}}
+  <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
+{{ else }}
+  {{- $styles = $styles | minify | fingerprint -}}
+  <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+{{ end -}}
+
